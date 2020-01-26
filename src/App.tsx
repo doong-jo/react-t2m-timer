@@ -4,16 +4,17 @@ import { ThemeProvider } from 'styled-components';
 import 'App.css';
 import GlobalStyles from './commons/style/globalstyle';
 import defaultTheme from 'commons/style/themes/default';
+import { Header, Footer, Timer } from 'components';
 
-const App: React.FC = () => {
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles />
-      <div style={{ textAlign: 'center', marginTop: '10rem' }}>
-        <h3>Welcome frontend boilerplate :)</h3>
-      </div>
-    </ThemeProvider>
-  );
-};
+const App: React.FC = () => (
+  <ThemeProvider theme={defaultTheme}>
+    <GlobalStyles />
+    <Header />
+    <main>
+      <Timer />
+    </main>
+    <Footer />
+  </ThemeProvider>
+);
 
 export default App;

@@ -71,9 +71,8 @@ const theme = {
       letter-spacing: 0.025rem;
     `,
     button: `
-      font-size: 1.4rem;
+      font-size: 2rem;
       font-weight: bold;
-      letter-spacing: 0.0125rem;
     `,
     caption: `
       font-size: 1.2rem;
