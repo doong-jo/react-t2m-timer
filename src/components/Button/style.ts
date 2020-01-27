@@ -13,13 +13,17 @@ export const Button = styled.div<OmitButton>`
   justify-content: center;
   align-items: center;
   border: 2px solid ${palette('black')};
-  box-shadow: 0px 5px 4px 1px;
+  box-shadow: 0px 0px 0px 0px;
   color: ${palette('black')};
   font-size: 4rem;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
   transition: box-shadow ease 0.2s;
+
+  &:hover {
+    box-shadow: 0px 5px 4px 1px;
+  }
 
   &:active {
     box-shadow: 0px 0px 0px 0px;
