@@ -1,47 +1,53 @@
 import React, { ReactElement, useState, useRef, useEffect } from 'react';
 
 import * as S from './style';
+
+import { START, PAUSE, RESET, RESUME } from 'commons/string';
 import { Button } from 'components';
-import timerDrawer from 'TimerDrawer';
+import timerDrawer from './drawer';
 
-interface Props {
-  mode?: string;
-  tick?: number;
-}
-
-function Timer({ mode, tick }: Props): ReactElement {
+function Timer(): ReactElement {
   const [isStarted, setIsStarted] = useState(true);
-  const [, setIsPause] = useState(false);
-
+  const [isPause, setIsPause] = useState(false);
   const canvasRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
     timerDrawer.draw(canvasRef.current);
   }, []);
+
   return (
     <S.Container>
-      <svg width={'60vh'} height={'60vh'} ref={canvasRef}></svg>
+      <svg width={'65vh'} height={'65vh'} ref={canvasRef}></svg>
       <S.ButtonContainer>
         {!isStarted ? (
           <>
             <Button
-              onClick={(event): void => {
+              onClick={(): void => {
                 setIsStarted(true);
                 setIsPause(false);
+                timerDrawer.reset();
+                timerDrawer.draw(canvasRef.current);
               }}
               width={'49%'}
               height={'10vh'}
             >
-              RESET
+              {RESET}
             </Button>
+
             <Button
               onClick={(event): void => {
-                setIsPause(true);
+                setIsPause(!isPause);
+                if (isPause) {
+                  timerDrawer.start();
+                  return;
+                }
+
+                timerDrawer.pause();
               }}
               width={'49%'}
               height={'10vh'}
             >
-              PAUSE
+              {isPause ? RESUME : PAUSE}
             </Button>
           </>
         ) : (
@@ -49,11 +55,12 @@ function Timer({ mode, tick }: Props): ReactElement {
             onClick={(event): void => {
               setIsStarted(false);
               setIsPause(false);
+              timerDrawer.start();
             }}
             width={'100%'}
             height={'10vh'}
           >
-            START
+            {START}
           </Button>
         )}
       </S.ButtonContainer>
