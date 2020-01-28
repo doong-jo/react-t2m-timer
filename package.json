@@ -11,7 +11,7 @@
     "cypress": "NODE_OPTIONS=--trace-warnings && cypress run",
     "cypress:open": "cypress open",
     "cypress:record": "cypress run --record --parallel",
-    "test": "react-scripts test --coverage --verbose --env=jsdom --watchAll=false && yarn test:cypress",
+    "test": "react-scripts test --coverage --verbose --env=jsdom --watchAll=false",
     "test:jest": "react-scripts test --coverage --verbose --watchAll=false --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom --coverage --verbose --watchAll=true",
     "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
