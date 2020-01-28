@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "build-storybook": "build-storybook -s public",
     "storybook": "start-storybook -p 9009 -s public",
-    "cypress": "unset NODE_OPTIONS && cypress run",
+    "cypress": "NODE_OPTIONS=--trace-warnings && cypress run",
     "cypress:open": "cypress open",
     "cypress:record": "cypress run --record --parallel",
     "test": "react-scripts test --coverage --verbose --env=jsdom --watchAll=false && yarn test:cypress",
