@@ -8,7 +8,7 @@ export const Container = styled.header`
   height: 5vh;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h5`
   margin-right: 2rem;
-  color: ${palette('grayscale', 1)};
+  color: ${palette('black')};
 `;

@@ -207,7 +207,7 @@ class TimerDrawer {
       this.drawText({
         x: `${centerX + (centerX - 15) * xSin}%`,
         y: `${centerY + (centerY - 15) * -yCos + 2}%`,
-        fontSize: '3rem',
+        fontSize: '4vmin',
         textAnchor: 'middle',
         text: `${this.timeTicks[timeIndex++]}`,
         fill: palette.grayscale[1],
@@ -272,7 +272,7 @@ class TimerDrawer {
     this.drawText({
       x: `${centerX}%`,
       y: '99%',
-      fontSize: '5rem',
+      fontSize: '5vmin',
       textAnchor: 'middle',
       fill: palette.white,
       text: this.countdownText,

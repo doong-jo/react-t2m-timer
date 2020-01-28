@@ -11,13 +11,22 @@ function Timer(): ReactElement {
   const [isPause, setIsPause] = useState(false);
   const canvasRef = useRef<SVGSVGElement | null>(null);
 
+  const buttonSize = {
+    width: '49%',
+    height: '10%',
+  };
+
   useEffect(() => {
     timerDrawer.draw(canvasRef.current);
   }, []);
 
+  window.onresize = (): void => {
+    timerDrawer.draw(canvasRef.current);
+  };
+
   return (
     <S.Container>
-      <svg width={'65vh'} height={'65vh'} ref={canvasRef}></svg>
+      <svg width={'60vmin'} height={'60vmin'} ref={canvasRef}></svg>
       <S.ButtonContainer>
         {!isStarted ? (
           <>
@@ -28,8 +37,7 @@ function Timer(): ReactElement {
                 timerDrawer.reset();
                 timerDrawer.draw(canvasRef.current);
               }}
-              width={'49%'}
-              height={'10vh'}
+              {...buttonSize}
             >
               {RESET}
             </Button>
@@ -44,8 +52,7 @@ function Timer(): ReactElement {
 
                 timerDrawer.pause();
               }}
-              width={'49%'}
-              height={'10vh'}
+              {...buttonSize}
             >
               {isPause ? RESUME : PAUSE}
             </Button>
@@ -57,8 +64,8 @@ function Timer(): ReactElement {
               setIsPause(false);
               timerDrawer.start();
             }}
+            {...buttonSize}
             width={'100%'}
-            height={'10vh'}
           >
             {START}
           </Button>

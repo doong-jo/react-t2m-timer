@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from 'components/Button/style';
 
 export const Container = styled.div`
   display: flex;
@@ -11,5 +12,9 @@ export const ButtonContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin: 1rem 0;
+  margin: 1rem 3vmin;
+
+  ${Button} {
+    font-size: 5vmin;
+  }
 `;

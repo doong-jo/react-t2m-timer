@@ -8,6 +8,6 @@
       }
     ],
     "block-no-empty": null,
-    "unit-whitelist": ["px", "rem", "%", "s", "vw", "vh"]
+    "unit-whitelist": ["px", "rem", "%", "s", "vmin", "vh"]
   }
 }
