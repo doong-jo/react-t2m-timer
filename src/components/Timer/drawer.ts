@@ -56,7 +56,11 @@ class TimerDrawer {
   private svgCanvas: SVGSVGElement | null;
   private angle: number;
   private countdownText: string;
-  private readonly timer: Timer = new Timer();
+  private readonly timer: Timer = new Timer({
+    countdown: true,
+    startValues: [0, 0, 0, 1, 0],
+    callback: this.tickCallback.bind(this),
+  });
 
   constructor() {
     this.svgCanvas = null;
@@ -65,11 +69,7 @@ class TimerDrawer {
   }
 
   start(): void {
-    this.timer.start({
-      countdown: true,
-      startValues: [0, 0, 0, 1, 0],
-      callback: this.tickCallback.bind(this),
-    });
+    this.timer.start();
   }
 
   pause(): void {
