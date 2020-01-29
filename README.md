@@ -17,4 +17,8 @@
 [Timer used by Google](https://www.youtube.com/watch?v=olXHv2AOrzE&t=282s)  
 This timer will help you improve your concentration.
 
-![preview](https://kr.object.ncloudstorage.com/etc/react-t2m-timer-preview.png)
+<p>
+  <a href=""https://doong-jo.github.io/react-t2m-timer/">
+    <img src="https://kr.object.ncloudstorage.com/etc/react-t2m-timer-preview.png" />
+  </a>
+</p>
