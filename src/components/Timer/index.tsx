@@ -5,16 +5,35 @@ import * as S from './style';
 import { START, PAUSE, RESET, RESUME } from 'commons/string';
 import { Button } from 'components';
 import timerDrawer from './drawer';
+import { TIMER_CANVAS_SIZE, TIMER_BUTTON_SIZE } from 'commons/dimen';
 
 function Timer(): ReactElement {
   const [isStarted, setIsStarted] = useState(true);
   const [isPause, setIsPause] = useState(false);
   const canvasRef = useRef<SVGSVGElement | null>(null);
 
-  const buttonSize = {
-    width: '49%',
-    height: '10%',
-  };
+  function handlerResetClicked(): void {
+    setIsStarted(true);
+    setIsPause(false);
+    timerDrawer.reset();
+    timerDrawer.draw(canvasRef.current);
+  }
+
+  function handlerPauseClicked(): void {
+    setIsPause(!isPause);
+    if (isPause) {
+      timerDrawer.start();
+      return;
+    }
+
+    timerDrawer.pause();
+  }
+
+  function handlerStartClicked(): void {
+    setIsStarted(false);
+    setIsPause(false);
+    timerDrawer.start();
+  }
 
   useEffect(() => {
     timerDrawer.draw(canvasRef.current);
@@ -26,46 +45,27 @@ function Timer(): ReactElement {
 
   return (
     <S.Container>
-      <svg width={'60vmin'} height={'60vmin'} ref={canvasRef}></svg>
+      <svg
+        width={TIMER_CANVAS_SIZE.width}
+        height={TIMER_CANVAS_SIZE.height}
+        ref={canvasRef}
+      ></svg>
       <S.ButtonContainer>
         {!isStarted ? (
           <>
-            <Button
-              onClick={(): void => {
-                setIsStarted(true);
-                setIsPause(false);
-                timerDrawer.reset();
-                timerDrawer.draw(canvasRef.current);
-              }}
-              {...buttonSize}
-            >
+            <Button onClick={handlerResetClicked} {...TIMER_BUTTON_SIZE}>
               {RESET}
             </Button>
 
-            <Button
-              onClick={(event): void => {
-                setIsPause(!isPause);
-                if (isPause) {
-                  timerDrawer.start();
-                  return;
-                }
-
-                timerDrawer.pause();
-              }}
-              {...buttonSize}
-            >
+            <Button onClick={handlerPauseClicked} {...TIMER_BUTTON_SIZE}>
               {isPause ? RESUME : PAUSE}
             </Button>
           </>
         ) : (
           <Button
-            onClick={(event): void => {
-              setIsStarted(false);
-              setIsPause(false);
-              timerDrawer.start();
-            }}
-            {...buttonSize}
+            onClick={handlerStartClicked}
             width={'100%'}
+            height={TIMER_BUTTON_SIZE.height}
           >
             {START}
           </Button>
