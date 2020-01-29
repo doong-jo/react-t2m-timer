@@ -18,7 +18,7 @@
 This timer will help you improve your concentration.
 
 <p>
-  <a href=""https://doong-jo.github.io/react-t2m-timer/">
+  <a href="https://doong-jo.github.io/react-t2m-timer/">
     <img src="https://kr.object.ncloudstorage.com/etc/react-t2m-timer-preview.png" />
   </a>
 </p>
