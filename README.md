@@ -13,6 +13,8 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg" />
 </p>
 
+## [👀 See timer](https://bit.ly/2RQrDN3)
+
 ## Intro
 [Timer used by Google](https://www.youtube.com/watch?v=olXHv2AOrzE&t=282s)  
 This timer will help you improve your concentration.
