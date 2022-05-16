@@ -27,7 +27,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,scss,css,md}\""
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "d3": "^5.15.0",
     "easytimer.js": "^4.1.1",
     "http-status": "^1.4.2",
